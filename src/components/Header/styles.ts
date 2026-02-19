@@ -1,0 +1,24 @@
+import styled from 'styled-components'
+
+export const Container = styled.header`
+  width: 100%;
+  padding: 64px 0 80px;
+  text-align: center;
+  background-repeat: repeat;
+  background-size: contain;
+`
+
+export const Logo = styled.img`
+  width: 125px;
+  margin-bottom: 90px;
+  justify-self: center;
+`
+
+export const Title = styled.h1`
+  max-width: 540px;
+  margin: 0 auto;
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 42px;
+  color: #e66767;
+`
