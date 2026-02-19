@@ -1,14 +1,13 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
-  border: 1px solid #E66767;
-  background-color: #fff;
+  border: 1px solid #e6e6e6;
   overflow: hidden;
   width: 100%;
-  margin: 10px;
-  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
+  background: #fff8f2;
 `;
 
 export const ImageWrapper = styled.div`
@@ -19,6 +18,7 @@ export const CardHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
   margin-bottom: 8px;
 `;
 
@@ -28,49 +28,63 @@ export const CardImageWrapper = styled.div`
 
 export const CardImage = styled.img`
   width: 100%;
-  height: 100%;
+  height: 217px;
   object-fit: cover;
+  display: block;
 `;
 
 export const CardContent = styled.div`
-  padding: 16px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
+  flex: 1;
 `;
 
 export const CardTitle = styled.h3`
-  font-size: 1.1rem;
-  margin: 0 0 5px 0;
+  margin: 0;
   color: #E66767;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
 `;
 
 export const CardDescription = styled.p`
-  font-size: 0.9rem;
+  margin: 0;
+  font-size: 14px;
   color: #E66767;
+  line-height: 22px;
   flex-grow: 1;
 `;
 
 export const CardFooter = styled.div`
+  margin-top: auto;
+  padding-top: 12px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
+  justify-content: flex-start;
 `;
 
 export const Button = styled.button`
+  width: fit-content;
   background-color: #E66767;
   color: #FFEBD9;
   border: none;
-  padding: 5px 10px;
+  padding: 6px 10px;
   cursor: pointer;
   font-size: 14px;
-  &:hover {
-    background-color: #b52b2b;
-  }
 `;
 
 export const Rating = styled.span`
   color: #E66767;
-  font-weight: bold;
-  font-size: 18px
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.2;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+`;
+
+export const ButtonLink = styled(Link)`
+  text-decoration: none;
 `;

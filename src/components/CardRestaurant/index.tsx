@@ -12,6 +12,7 @@ import {
   Rating,
   CardHeader,
   ImageWrapper,
+  ButtonLink,
 } from "./styles";
 
 import { Tags } from "../Tags";
@@ -50,7 +51,9 @@ export const CardRestaurant: React.FC<CardRestaurantProps> = ({
 
         <CardFooter>
           <Link to={`/restaurante/${id}`}>
-            <Button>Saiba mais</Button>
+            <ButtonLink to={`/restaurante/${id}`}>
+              <Button>Saiba mais</Button>
+            </ButtonLink>
           </Link>
         </CardFooter>
       </CardContent>

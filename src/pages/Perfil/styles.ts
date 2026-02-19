@@ -80,7 +80,6 @@ export const RestaurantName = styled.h1`
 
 export const DishesGrid = styled.div`
   max-width: 1024px;
-  width: 100%;
   margin: 56px auto;
   padding: 0 20px;
 
@@ -88,5 +87,47 @@ export const DishesGrid = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
 
-  align-items: stretch; /* faz todos os cards terem mesma altura */
+  align-items: stretch;
+`;
+
+export const ModalContent = styled.div`
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+  align-items: start;
+
+  img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+  }
+`;
+
+export const ModalTitle = styled.h2`
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 900;
+`;
+
+export const ModalText = styled.p`
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  line-height: 22px;
+`;
+
+export const ModalPortion = styled.p`
+  margin: 0 0 16px 0;
+  font-size: 14px;
+  font-weight: 700;
+`;
+
+export const ModalButton = styled.button`
+  border: 0;
+  cursor: pointer;
+  background: #ffebd9;
+  color: #e66767;
+  font-weight: 700;
+  padding: 8px 12px;
+  font-size: 14px;
 `;

@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import Footer from "../../components/Footer";
-import { LogoCenter } from "./styles";
+import { DishCard } from "../../components/DishCard";
+import { Modal } from "../../components/Modal";
 
 import {
   TopBar,
@@ -13,53 +15,122 @@ import {
   Category,
   RestaurantName,
   DishesGrid,
+  ModalContent,
+  ModalTitle,
+  ModalText,
+  ModalPortion,
+  ModalButton,
 } from "./styles";
 
 import logo from "../../assets/images/logo.svg";
-import banner from "../../assets/images/massa.svg";
+// import banner from "../../assets/images/massa.svg";
 import pizza from "../../assets/images/pizza.svg";
-import { DishCard } from "../../components/DishCard";
+
+type Dish = {
+  id: number;
+  foto: string;
+  nome: string;
+  descricao: string;
+  porcao: string;
+  preco: number;
+};
+
+type Restaurant = {
+  id: number;
+  titulo: string;
+  tipo: string;
+  capa: string;
+  cardapio: Dish[];
+};
 
 export default function Perfil() {
-  const dishes = Array.from({ length: 6 }).map((_, i) => ({
-    id: i + 1,
-    image: pizza,
-    title: "Pizza Marguerita",
-    description:
-      "A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!",
-  }));
+  const { id } = useParams();
+  const [restaurant, setRestaurant] = useState<Restaurant | null>(null);
+  const [selectedDish, setSelectedDish] = useState<Dish | null>(null);
+
+  useEffect(() => {
+    fetch("https://api-ebac.vercel.app/api/efood/restaurantes")
+      .then((res) => res.json())
+      .then((data: Restaurant[]) => {
+        const found = data.find((r) => r.id === Number(id));
+        if (found) setRestaurant(found);
+      });
+  }, [id]);
+
+  const formatPrice = (value: number) =>
+    value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+
+  if (!restaurant) {
+    return (
+      <>
+        <TopBar>
+          <TopBarContent>
+            <TopLink as={Link} to="/">
+              Restaurantes
+            </TopLink>
+            <img src={logo} alt="efood" />
+            <CartInfo>0 produto(s) no carrinho</CartInfo>
+          </TopBarContent>
+        </TopBar>
+
+        <p style={{ padding: 40, textAlign: "center" }}>Carregando...</p>
+        <Footer />
+      </>
+    );
+  }
 
   return (
     <>
-      {" "}
       <TopBar>
-        {" "}
         <TopBarContent>
-          {" "}
           <TopLink as={Link} to="/">
-            Restaurantes{" "}
-          </TopLink>{" "}
-          <LogoCenter src={logo} alt="efood" />
+            Restaurantes
+          </TopLink>
+
+          <img src={logo} alt="efood" />
+
           <CartInfo>0 produto(s) no carrinho</CartInfo>
         </TopBarContent>
       </TopBar>
-      <Hero style={{ backgroundImage: `url(${banner})` }}>
+
+      <Hero style={{ backgroundImage: `url(${restaurant?.capa})` }}>
         <HeroOverlay />
         <HeroContent>
-          <Category>Italiana</Category>
-          <RestaurantName>La Dolce Vita Trattoria</RestaurantName>
+          <Category>{restaurant?.tipo}</Category>
+          <RestaurantName>{restaurant?.titulo}</RestaurantName>
         </HeroContent>
       </Hero>
+
       <DishesGrid>
-        {dishes.map((dish) => (
+        {restaurant?.cardapio.map((dish) => (
           <DishCard
             key={dish.id}
-            image={dish.image}
-            title={dish.title}
-            description={dish.description}
+            image={dish.foto}
+            title={dish.nome}
+            description={dish.descricao}
+            onClick={() => setSelectedDish(dish)}
           />
         ))}
       </DishesGrid>
+
+      <Modal isOpen={!!selectedDish} onClose={() => setSelectedDish(null)}>
+        {selectedDish && (
+          <ModalContent>
+            <img src={selectedDish.foto} alt={selectedDish.nome} />
+
+            <div>
+              <ModalTitle>{selectedDish.nome}</ModalTitle>
+              <ModalText>{selectedDish.descricao}</ModalText>
+              <ModalPortion>{selectedDish.porcao}</ModalPortion>
+
+              <ModalButton type="button">
+                Adicionar ao carrinho - {formatPrice(selectedDish.preco)}
+              </ModalButton>
+            </div>
+          </ModalContent>
+        )}
+      </Modal>
+
       <Footer />
     </>
   );
