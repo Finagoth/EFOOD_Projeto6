@@ -1,8 +1,6 @@
-import React from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
 import { LogoCenter } from "./styles";
-
 
 import {
   TopBar,
@@ -23,8 +21,6 @@ import pizza from "../../assets/images/pizza.svg";
 import { DishCard } from "../../components/DishCard";
 
 export default function Perfil() {
-  const { id } = useParams();
-
   const dishes = Array.from({ length: 6 }).map((_, i) => ({
     id: i + 1,
     image: pizza,
@@ -35,17 +31,18 @@ export default function Perfil() {
 
   return (
     <>
+      {" "}
       <TopBar>
+        {" "}
         <TopBarContent>
+          {" "}
           <TopLink as={Link} to="/">
-            Restaurantes
-          </TopLink>
+            Restaurantes{" "}
+          </TopLink>{" "}
           <LogoCenter src={logo} alt="efood" />
-
           <CartInfo>0 produto(s) no carrinho</CartInfo>
         </TopBarContent>
       </TopBar>
-
       <Hero style={{ backgroundImage: `url(${banner})` }}>
         <HeroOverlay />
         <HeroContent>
@@ -53,7 +50,6 @@ export default function Perfil() {
           <RestaurantName>La Dolce Vita Trattoria</RestaurantName>
         </HeroContent>
       </Hero>
-
       <DishesGrid>
         {dishes.map((dish) => (
           <DishCard
@@ -64,7 +60,6 @@ export default function Perfil() {
           />
         ))}
       </DishesGrid>
-
       <Footer />
     </>
   );
