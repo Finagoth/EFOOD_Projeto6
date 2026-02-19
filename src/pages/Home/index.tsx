@@ -18,7 +18,7 @@ const Container = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 32px;
 
-  align-items: stretch; /* 👈 força mesma altura */
+  align-items: stretch;
 `;
 
 export default function Home() {
