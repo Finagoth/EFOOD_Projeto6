@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import Footer from "../../components/Footer";
 import { DishCard } from "../../components/DishCard";
 import { Modal } from "../../components/Modal";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { addItem, openCart } from "../../store/slices/cartSlice";
 
 import {
   TopBar,
@@ -23,8 +25,6 @@ import {
 } from "./styles";
 
 import logo from "../../assets/images/logo.svg";
-// import banner from "../../assets/images/massa.svg";
-// import pizza from "../../assets/images/pizza.svg";
 
 type Dish = {
   id: number;
@@ -47,6 +47,10 @@ export default function Perfil() {
   const { id } = useParams();
   const [restaurant, setRestaurant] = useState<Restaurant | null>(null);
   const [selectedDish, setSelectedDish] = useState<Dish | null>(null);
+
+  const dispatch = useAppDispatch();
+
+  const cartCount = useAppSelector((state) => state.cart.items.length);
 
   useEffect(() => {
     fetch("https://api-ebac.vercel.app/api/efood/restaurantes")
@@ -89,20 +93,23 @@ export default function Perfil() {
 
           <img src={logo} alt="efood" />
 
-          <CartInfo>0 produto(s) no carrinho</CartInfo>
+          
+          <CartInfo role="button" onClick={() => dispatch(openCart())}>
+            {cartCount} produto(s) no carrinho
+          </CartInfo>
         </TopBarContent>
       </TopBar>
 
-      <Hero style={{ backgroundImage: `url(${restaurant?.capa})` }}>
+      <Hero style={{ backgroundImage: `url(${restaurant.capa})` }}>
         <HeroOverlay />
         <HeroContent>
-          <Category>{restaurant?.tipo}</Category>
-          <RestaurantName>{restaurant?.titulo}</RestaurantName>
+          <Category>{restaurant.tipo}</Category>
+          <RestaurantName>{restaurant.titulo}</RestaurantName>
         </HeroContent>
       </Hero>
 
       <DishesGrid>
-        {restaurant?.cardapio.map((dish) => (
+        {restaurant.cardapio.map((dish) => (
           <DishCard
             key={dish.id}
             image={dish.foto}
@@ -123,7 +130,22 @@ export default function Perfil() {
               <ModalText>{selectedDish.descricao}</ModalText>
               <ModalPortion>{selectedDish.porcao}</ModalPortion>
 
-              <ModalButton type="button">
+              <ModalButton
+                type="button"
+                onClick={() => {
+                  dispatch(
+                    addItem({
+                      id: selectedDish.id,
+                      nome: selectedDish.nome,
+                      foto: selectedDish.foto,
+                      preco: selectedDish.preco,
+                    }),
+                  );
+
+                  dispatch(openCart());
+                  setSelectedDish(null);
+                }}
+              >
                 Adicionar ao carrinho - {formatPrice(selectedDish.preco)}
               </ModalButton>
             </div>
