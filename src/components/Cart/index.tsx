@@ -1,34 +1,37 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { closeCart, removeItem } from "../../store/slices/cartSlice";
 import {
   Overlay,
-  Drawer,
+  Sidebar,
+  Header,
   Title,
+  CloseButton,
   Items,
   Item,
-  ItemImg,
+  ItemImage,
   ItemInfo,
   ItemName,
   ItemPrice,
-  RemoveBtn,
-  Row,
+  RemoveButton,
+  Footer,
+  TotalRow,
   TotalLabel,
   TotalValue,
-  ActionBtn,
+  CheckoutButton,
 } from "./styles";
 
-const formatPrice = (value: number) =>
-  value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
-
-export const Cart: React.FC = () => {
+export default function Cart() {
   const dispatch = useAppDispatch();
   const { isOpen, items } = useAppSelector((state) => state.cart);
 
   const total = useMemo(
     () => items.reduce((acc, item) => acc + item.preco, 0),
-    [items],
+    [items]
   );
+
+  const formatPrice = (value: number) =>
+    value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 
   if (!isOpen) return null;
 
@@ -36,38 +39,42 @@ export const Cart: React.FC = () => {
     <>
       <Overlay onClick={() => dispatch(closeCart())} />
 
-      <Drawer>
-        <Title>Carrinho</Title>
+      <Sidebar>
+        <Header>
+          <Title>Carrinho</Title>
+          <CloseButton onClick={() => dispatch(closeCart())}>×</CloseButton>
+        </Header>
 
         <Items>
           {items.map((item) => (
             <Item key={item.id}>
-              <ItemImg src={item.foto} alt={item.nome} />
+              <ItemImage src={item.foto} alt={item.nome} />
+
               <ItemInfo>
                 <ItemName>{item.nome}</ItemName>
                 <ItemPrice>{formatPrice(item.preco)}</ItemPrice>
               </ItemInfo>
 
-              <RemoveBtn
+              <RemoveButton
                 type="button"
                 aria-label="Remover item"
                 onClick={() => dispatch(removeItem(item.id))}
               >
-                ×
-              </RemoveBtn>
+                🗑️
+              </RemoveButton>
             </Item>
           ))}
         </Items>
 
-        <Row>
-          <TotalLabel>Valor total</TotalLabel>
-          <TotalValue>{formatPrice(total)}</TotalValue>
-        </Row>
+        <Footer>
+          <TotalRow>
+            <TotalLabel>Valor total</TotalLabel>
+            <TotalValue>{formatPrice(total)}</TotalValue>
+          </TotalRow>
 
-        <ActionBtn type="button">Continuar com a entrega</ActionBtn>
-      </Drawer>
+          <CheckoutButton type="button">Continuar com a entrega</CheckoutButton>
+        </Footer>
+      </Sidebar>
     </>
   );
-};
-
-export default Cart;
+}

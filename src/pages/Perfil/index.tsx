@@ -93,7 +93,6 @@ export default function Perfil() {
 
           <img src={logo} alt="efood" />
 
-          
           <CartInfo role="button" onClick={() => dispatch(openCart())}>
             {cartCount} produto(s) no carrinho
           </CartInfo>
