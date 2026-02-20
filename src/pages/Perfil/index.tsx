@@ -24,7 +24,7 @@ import {
 
 import logo from "../../assets/images/logo.svg";
 // import banner from "../../assets/images/massa.svg";
-import pizza from "../../assets/images/pizza.svg";
+// import pizza from "../../assets/images/pizza.svg";
 
 type Dish = {
   id: number;
