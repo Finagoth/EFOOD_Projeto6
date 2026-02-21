@@ -22,3 +22,19 @@ export const Title = styled.h1`
   line-height: 42px;
   color: #e66767;
 `
+
+export const HeaderBar = styled.header`
+  width: 100%;
+  background: #fff5f5;
+`;
+
+export const HeaderInner = styled.div`
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;

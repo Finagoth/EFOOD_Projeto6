@@ -24,6 +24,7 @@ import {
 } from "./styles";
 
 export default function Cart() {
+  // const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { isOpen, items } = useAppSelector((state) => state.cart);
 
