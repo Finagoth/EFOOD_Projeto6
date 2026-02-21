@@ -19,11 +19,6 @@ const Container = styled.div`
   align-items: stretch;
 `;
 
-const Section = styled.section`
-  background-color: #fff8f2;
-  padding: 56px 0;
-`;
-
 export default function Home() {
   const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
   const [loading, setLoading] = useState(true);
