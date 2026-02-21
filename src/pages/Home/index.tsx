@@ -13,11 +13,9 @@ const Container = styled.div`
   width: 100%;
   margin: 0 auto;
   padding: 40px 20px;
-
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 32px;
-
   align-items: stretch;
 `;
 
@@ -27,19 +25,18 @@ export default function Home() {
 
   useEffect(() => {
     getRestaurants()
-      .then((data) => setRestaurants(data))
+      .then((data: React.SetStateAction<Restaurant[]>) => setRestaurants(data))
       .finally(() => setLoading(false));
   }, []);
 
   return (
     <>
       <Header />
-
       <Container>
         {loading ? (
           <p>Carregando...</p>
         ) : (
-          restaurants.map((r) => (
+          restaurants.map((r, index) => (
             <CardRestaurant
               key={r.id}
               id={r.id}
@@ -47,12 +44,11 @@ export default function Home() {
               title={r.titulo}
               description={r.descricao}
               rating={String(r.avaliacao)}
-              tags={[...(r.destacado ? ["Destaque da semana"] : []), r.tipo]}
+              tags={[...(index === 0 ? ["Destaque da semana"] : []), r.tipo]}
             />
           ))
         )}
       </Container>
-
       <Footer />
     </>
   );

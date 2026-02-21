@@ -1,6 +1,7 @@
-import Cart from "./components/Cart";
 import { GlobalStyle } from "./styles";
 import { AppRoutes } from "./routes/AppRoutes";
+import Cart from "./components/Cart";
+import Checkout from "./components/Checkout";
 
 function App() {
   return (
@@ -8,8 +9,9 @@ function App() {
       <GlobalStyle />
       <AppRoutes />
       <Cart />
+      <Checkout />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

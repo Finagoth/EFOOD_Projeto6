@@ -1,6 +1,9 @@
 import { useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { closeCart, removeItem } from "../../store/slices/cartSlice";
+import { openCheckout } from "../../store/slices/checkoutUiSlice";
+
 import {
   Overlay,
   Sidebar,
@@ -22,12 +25,13 @@ import {
 } from "./styles";
 
 export default function Cart() {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { isOpen, items } = useAppSelector((state) => state.cart);
 
   const total = useMemo(
     () => items.reduce((acc, item) => acc + item.preco, 0),
-    [items]
+    [items],
   );
 
   const formatPrice = (value: number) =>
@@ -72,7 +76,16 @@ export default function Cart() {
             <TotalValue>{formatPrice(total)}</TotalValue>
           </TotalRow>
 
-          <CheckoutButton type="button">Continuar com a entrega</CheckoutButton>
+          <CheckoutButton
+            type="button"
+            disabled={items.length === 0}
+            onClick={() => {
+              dispatch(closeCart());
+              dispatch(openCheckout());
+            }}
+          >
+            Continuar com a entrega
+          </CheckoutButton>
         </Footer>
       </Sidebar>
     </>

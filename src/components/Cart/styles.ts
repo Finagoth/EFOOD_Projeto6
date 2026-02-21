@@ -128,3 +128,4 @@ export const CheckoutButton = styled.button`
   font-weight: 700;
   font-size: 14px;
 `;
+

@@ -1,16 +1,16 @@
 import { Restaurant } from "../types/efood";
 
-const API_URL = "https://api-ebac.vercel.app/api/efood/restaurantes";
+const API_URL = "https://api-ebac.vercel.app/api/efood";
 
 export async function getRestaurants(): Promise<Restaurant[]> {
-    const res = await fetch(API_URL);
-    if (!res.ok) throw new Error("Erro ao buscar restaurantes");
-    return res.json();
-}
+    const url = `${API_URL}/restaurantes`;
+    const res = await fetch(url);
 
-export async function getRestaurantById(id: number): Promise<Restaurant> {
-    const restaurants = await getRestaurants();
-    const found = restaurants.find((r) => r.id === id);
-    if (!found) throw new Error("Restaurante não encontrado");
-    return found;
+    if (!res.ok) {
+        const text = await res.text().catch(() => "");
+        console.error("GET restaurants falhou:", res.status, res.statusText, url, text);
+        throw new Error(`Erro ao buscar restaurantes (${res.status})`);
+    }
+
+    return res.json();
 }
