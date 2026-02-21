@@ -15,8 +15,13 @@ const Container = styled.div`
   padding: 40px 20px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
+  gap: 48px;
   align-items: stretch;
+`;
+
+const Section = styled.section`
+  background-color: #fff8f2;
+  padding: 56px 0;
 `;
 
 export default function Home() {

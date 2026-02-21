@@ -2,8 +2,12 @@ import styled from 'styled-components'
 
 export const Container = styled.header`
   width: 100%;
-  padding: 64px 0 80px;
+  height: 348px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-repeat: repeat;
   background-size: contain;
 `
@@ -33,7 +37,6 @@ export const HeaderInner = styled.div`
   width: 100%;
   margin: 0 auto;
   padding: 24px 20px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;

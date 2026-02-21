@@ -44,7 +44,7 @@ export const CardRestaurant: React.FC<CardRestaurantProps> = ({
       <CardContent>
         <CardHeader>
           <CardTitle>{title}</CardTitle>
-          <Rating>{rating} ⭐</Rating>
+          <Rating>{rating}⭐</Rating>
         </CardHeader>
 
         <CardDescription>{description}</CardDescription>

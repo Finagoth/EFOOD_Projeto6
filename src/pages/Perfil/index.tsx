@@ -22,6 +22,7 @@ import {
   ModalText,
   ModalPortion,
   ModalButton,
+  DishesSection,
 } from "./styles";
 
 import logo from "../../assets/images/logo.svg";
@@ -76,7 +77,6 @@ export default function Perfil() {
             <CartInfo>0 produto(s) no carrinho</CartInfo>
           </TopBarContent>
         </TopBar>
-
         <p style={{ padding: 40, textAlign: "center" }}>Carregando...</p>
         <Footer />
       </>
@@ -107,17 +107,19 @@ export default function Perfil() {
         </HeroContent>
       </Hero>
 
-      <DishesGrid>
-        {restaurant.cardapio.map((dish) => (
-          <DishCard
-            key={dish.id}
-            image={dish.foto}
-            title={dish.nome}
-            description={dish.descricao}
-            onClick={() => setSelectedDish(dish)}
-          />
-        ))}
-      </DishesGrid>
+      <DishesSection>
+        <DishesGrid>
+          {restaurant.cardapio.map((dish) => (
+            <DishCard
+              key={dish.id}
+              image={dish.foto}
+              title={dish.nome}
+              description={dish.descricao}
+              onClick={() => setSelectedDish(dish)}
+            />
+          ))}
+        </DishesGrid>
+      </DishesSection>
 
       <Modal isOpen={!!selectedDish} onClose={() => setSelectedDish(null)}>
         {selectedDish && (

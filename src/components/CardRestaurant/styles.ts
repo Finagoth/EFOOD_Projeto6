@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
-  border: 1px solid #e6e6e6;
+  border: 1px solid #E66767;
   overflow: hidden;
   width: 100%;
   display: flex;

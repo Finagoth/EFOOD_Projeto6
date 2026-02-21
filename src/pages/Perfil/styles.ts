@@ -12,9 +12,8 @@ export const TopBarContent = styled.div`
   max-width: 1024px;
   margin: 0 auto;
   padding: 0 20px;
-
   display: grid;
-  grid-template-columns: 1fr auto 1fr; /* esquerda | logo | direita */
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
 `;
 
@@ -81,12 +80,15 @@ export const DishesGrid = styled.div`
   max-width: 1024px;
   margin: 56px auto;
   padding: 0 20px;
-
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
-
   align-items: stretch;
+`;
+
+export const DishesSection = styled.section`
+  background-color: #FFF8F2;
+  padding: 56px 0;
 `;
 
 export const ModalContent = styled.div`
