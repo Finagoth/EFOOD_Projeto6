@@ -12,17 +12,15 @@ export const TopBarContent = styled.div`
   max-width: 1024px;
   margin: 0 auto;
   padding: 0 20px;
-  position: relative;
-  display: flex;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; /* esquerda | logo | direita */
   align-items: center;
-  justify-content: space-between;
 `;
 
 export const LogoCenter = styled.img`
   width: 125px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  justify-self: center;
 `;
 
 export const TopLink = styled.a`
@@ -37,6 +35,7 @@ export const CartInfo = styled.span`
   color: #e66767;
   font-weight: 700;
   font-size: 18px;
+  justify-self: end;
 `;
 
 export const Hero = styled.section`
