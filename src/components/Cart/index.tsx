@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { closeCart, removeItem } from "../../store/slices/cartSlice";
 import { openCheckout } from "../../store/slices/checkoutUiSlice";
@@ -25,7 +24,6 @@ import {
 } from "./styles";
 
 export default function Cart() {
-  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { isOpen, items } = useAppSelector((state) => state.cart);
 
