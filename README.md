@@ -13,7 +13,7 @@ https://efood-projeto6-coral.vercel.app/
 ### 🏠 Home
 ![Home](prints/home.jpg)
 
-### 🍽️ Restaurante
+### 🍽️ Cardápio do Restaurante
 ![Restaurante](prints/abaRestaurante.jpg)
 
 ### 🛒 Carrinho
