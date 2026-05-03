@@ -5,7 +5,7 @@ Aplicação web de e-commerce focada em restaurantes, desenvolvida com React + T
 🚀 Demonstração
 
 🔗 Acesse o projeto:
-(cole aqui o link do deploy — Vercel, Netlify, etc.)
+https://efood-projeto6-coral.vercel.app/
 
 📸 Preview
 
@@ -14,6 +14,7 @@ Aplicação web de e-commerce focada em restaurantes, desenvolvida com React + T
 assets/home.png
 assets/cardapio.png
 assets/carrinho.png
+
 ✨ Funcionalidades
 📋 Listagem de restaurantes
 🍽️ Visualização de cardápios
@@ -21,13 +22,16 @@ assets/carrinho.png
 💰 Cálculo automático do total
 📦 Simulação de finalização de pedido
 🔍 Interface responsiva e moderna
+
 🛠️ Tecnologias utilizadas
 React
 TypeScript
-Styled Components / CSS Modules (ajusta conforme usou)
-Redux / Context API (ajusta conforme usou)
+Styled Components / CSS Modules
+Redux / Context API
 React Router
-Vite / CRA (ajusta conforme usou)
+Vite / CRA
+
+
 📂 Estrutura do projeto
 src/
 ├── assets/        # Imagens e ícones
@@ -37,9 +41,10 @@ src/
 ├── store/         # Gerenciamento de estado
 ├── styles/        # Estilos globais
 └── App.tsx
+
 ⚙️ Como rodar o projeto
 1. Clone o repositório
-git clone https://github.com/seu-usuario/efood.git
+git clone https://github.com/Finagoth/efood.git
 2. Acesse a pasta
 cd efood
 3. Instale as dependências
