@@ -23,34 +23,35 @@ https://efood-projeto6-coral.vercel.app/
 ![Endereço](prints/endereco.jpg)
 
 
-✨ Funcionalidades
+## ✨ Funcionalidades
 
--📋 Listagem de restaurantes
--🍽️ Visualização de cardápios
--🛒 Adição e remoção de itens no carrinho
--💰 Cálculo automático do total
--📦 Simulação de finalização de pedido
--🔍 Interface responsiva e moderna
+- 📋 Listagem de restaurantes  
+- 🍽️ Visualização de cardápios  
+- 🛒 Adição e remoção de itens no carrinho  
+- 💰 Cálculo automático do total  
+- 📦 Simulação de finalização de pedido  
+- 🔍 Interface responsiva e moderna
 
 
-🛠️ Tecnologias utilizadas
--React
--TypeScript
--Styled Components / CSS Modules
--Redux / Context API
--React Router
--Vite / CRA
+## 🛠️ Tecnologias utilizadas
+
+- React
+- TypeScript
+- Styled Components / CSS Modules
+- Redux / Context API
+- React Router
+- Vite / CRA
 
 
 📂 Estrutura do projeto
 src/
--├── assets/        # Imagens e ícones
--├── components/    # Componentes reutilizáveis
--├── pages/         # Páginas da aplicação
--├── services/      # Integrações e APIs
--├── store/         # Gerenciamento de estado
--├── styles/        # Estilos globais
--└── App.tsx
+- ├── assets/        # Imagens e ícones
+- ├── components/    # Componentes reutilizáveis
+- ├── pages/         # Páginas da aplicação
+- ├── services/      # Integrações e APIs
+- ├── store/         # Gerenciamento de estado
+- ├── styles/        # Estilos globais
+- └── App.tsx
 
 
 ⚙️ Como rodar o projeto
