@@ -7,12 +7,20 @@ Aplicação web de e-commerce focada em restaurantes, desenvolvida com React + T
 🔗 Acesse o projeto:
 https://efood-projeto6-coral.vercel.app/
 
-📸 Preview
 
-Home ![Home](prints/home.jpg)
-Cardápio do Restaurante![Restaurante](prints/abaRestaurante.jpg)
-Carrinho ![Carrinho](prints/carrinho.jpg)
-Endereço ![Endereço](prints/endereco.jpg)
+## 📸 Preview
+
+### 🏠 Home
+![Home](prints/home.jpg)
+
+### 🍽️ Restaurante
+![Restaurante](prints/abaRestaurante.jpg)
+
+### 🛒 Carrinho
+![Carrinho](prints/carrinho.jpg)
+
+### 📍 Endereço
+![Endereço](prints/endereco.jpg)
 
 
 ✨ Funcionalidades
