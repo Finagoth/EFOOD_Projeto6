@@ -9,10 +9,10 @@ https://efood-projeto6-coral.vercel.app/
 
 📸 Preview
 
-![Home](prints/home.jpg)
-![Restaurante](prints/abaRestaurante.jpg)
-![Carrinho](prints/carrinho.jpg)
-![Endereço](prints/endereco.jpg)
+Home ![Home](prints/home.jpg)
+Cardápio do Restaurante![Restaurante](prints/abaRestaurante.jpg)
+Carrinho ![Carrinho](prints/carrinho.jpg)
+Endereço ![Endereço](prints/endereco.jpg)
 
 
 ✨ Funcionalidades
