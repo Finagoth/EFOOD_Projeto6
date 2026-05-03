@@ -9,19 +9,24 @@ https://efood-projeto6-coral.vercel.app/
 
 📸 Preview
 
-(Adicione aqui prints do projeto, ex:)
+prints/home
 
-assets/home.png
-assets/cardapio.png
-assets/carrinho.png
+prints/abaRestaurante
+
+prints/carrinho
+
+print/endereco
+
 
 ✨ Funcionalidades
+
 📋 Listagem de restaurantes
 🍽️ Visualização de cardápios
 🛒 Adição e remoção de itens no carrinho
 💰 Cálculo automático do total
 📦 Simulação de finalização de pedido
 🔍 Interface responsiva e moderna
+
 
 🛠️ Tecnologias utilizadas
 React
@@ -42,6 +47,7 @@ src/
 ├── styles/        # Estilos globais
 └── App.tsx
 
+
 ⚙️ Como rodar o projeto
 1. Clone o repositório
 git clone https://github.com/Finagoth/efood.git
@@ -55,7 +61,9 @@ npm run dev
 npm run build
 🎯 Objetivo do projeto
 
+
 Este projeto foi desenvolvido com foco em:
+
 
 Praticar React com TypeScript
 Trabalhar com componentização
@@ -67,11 +75,14 @@ Sistema de autenticação (login)
 Persistência do carrinho (localStorage ou backend)
 Pagamento online
 Testes automatizados
+
+
 👨‍💻 Autor
 
 Desenvolvido por Lucas Calíope
 
 🔗 LinkedIn: (https://www.linkedin.com/in/lucas-caliope09/)
+
 🔗 GitHub: (https://github.com/Finagoth)
 
 📄 Licença
